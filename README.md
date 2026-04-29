@@ -44,16 +44,16 @@ ConvNeXt-Tiny имеет около 28 миллионов параметров, 
 
 Lab_work1/
 ├── models/
-│ ├── init.py
-│ └── convnext.py # Архитектура ConvNeXt-Tiny
+│   ├── __init__.py
+│   └── convnext.py
 ├── utils/
-│ ├── init.py
-│ ├── dataset.py # Загрузка данных, разбиение 70/15/15
-│ ├── train.py # Функции обучения и оценки
-│ └── result_plots.py # Визуализация результатов
-├── results/ # Сохраняются графики и веса моделей
-├── main.py # Запуск всех экспериментов
-├── requirements.txt # Зависимости
+│   ├── __init__.py
+│   ├── dataset.py
+│   ├── train.py
+│   └── result_plots.py
+├── results/
+├── main.py
+├── requirements.txt
 ├── .gitignore
 └── README.md
 
