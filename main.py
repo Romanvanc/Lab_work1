@@ -47,6 +47,17 @@ def main():
                                     criterion, EPOCHS, device, "convnext_adam")
     test_metrics1 = evaluate(model1, test_loader, criterion, device)
     results['Adam (Finetune)'] = test_metrics1
+
+    from utils.result_plots import plot_training_history, plot_confusion_matrix
+    
+    plot_training_history(history1, 'convnext_adam')
+    plot_confusion_matrix(model1, test_loader, device, num_classes, class_names, 'convnext_adam')
+    
+    plot_training_history(history2, 'convnext_adamw')
+    plot_confusion_matrix(model2, test_loader, device, num_classes, class_names, 'convnext_adamw')
+    
+    plot_training_history(history3, 'convnext_scratch')
+    plot_confusion_matrix(model3, test_loader, device, num_classes, class_names, 'convnext_scratch')
     
     # Experiment 2: Finetune + AdamW (variant requirement)
     print("\n" + "="*60)
@@ -64,6 +75,17 @@ def main():
                                     criterion, EPOCHS, device, "convnext_adamw")
     test_metrics2 = evaluate(model2, test_loader, criterion, device)
     results['AdamW (Finetune)'] = test_metrics2
+
+    from utils.result_plots import plot_training_history, plot_confusion_matrix
+    
+    plot_training_history(history1, 'convnext_adam')
+    plot_confusion_matrix(model1, test_loader, device, num_classes, class_names, 'convnext_adam')
+    
+    plot_training_history(history2, 'convnext_adamw')
+    plot_confusion_matrix(model2, test_loader, device, num_classes, class_names, 'convnext_adamw')
+    
+    plot_training_history(history3, 'convnext_scratch')
+    plot_confusion_matrix(model3, test_loader, device, num_classes, class_names, 'convnext_scratch')
     
     # Experiment 3: From scratch + Adam
     print("\n" + "="*60)
@@ -76,6 +98,17 @@ def main():
                                     criterion, EPOCHS, device, "convnext_scratch")
     test_metrics3 = evaluate(model3, test_loader, criterion, device)
     results['Adam (Scratch)'] = test_metrics3
+
+    from utils.result_plots import plot_training_history, plot_confusion_matrix
+    
+    plot_training_history(history1, 'convnext_adam')
+    plot_confusion_matrix(model1, test_loader, device, num_classes, class_names, 'convnext_adam')
+    
+    plot_training_history(history2, 'convnext_adamw')
+    plot_confusion_matrix(model2, test_loader, device, num_classes, class_names, 'convnext_adamw')
+    
+    plot_training_history(history3, 'convnext_scratch')
+    plot_confusion_matrix(model3, test_loader, device, num_classes, class_names, 'convnext_scratch')
     
     # Print final results
     print("\n" + "="*60)
