@@ -42,6 +42,7 @@ ConvNeXt-Tiny имеет около 28 миллионов параметров, 
 
 ## Структура проекта
 
+```
 Lab_work1/
 ├── models/
 │   ├── __init__.py
@@ -56,7 +57,7 @@ Lab_work1/
 ├── requirements.txt
 ├── .gitignore
 └── README.md
-
+```
 
 ## Разбиение данных
 
