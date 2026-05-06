@@ -87,6 +87,14 @@ Seed зафиксирован на 497328, разбиение воспроизв
 
 ![Сравнение результатов](results/comparison_results.png)
 
+![Adam](results/adam.png)
+
+![AdamW](results/adamw.png)
+
+![Scratch](results/scratch.png)
+
+![Сравнение Validation Accuracy](results/val_acc.png)
+
 ### Сравнение Adam и AdamW
 
 | Метрика | Adam | AdamW | Разница |
