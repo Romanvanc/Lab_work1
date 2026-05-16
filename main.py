@@ -90,13 +90,17 @@ def main():
     # Experiment 3: From scratch + Adam
     print("\n" + "="*60)
     print("EXPERIMENT 3: ConvNeXt-Tiny + Adam (From Scratch)")
-    model3 = get_convnext_tiny(pretrained=False, num_classes=num_classes)
-    model3 = model3.to(device)
+    from models.scratch import get_scratch_cnn
     
-    optimizer3 = torch.optim.Adam(model3.parameters(), lr=1e-3, weight_decay=1e-4)
-    model3, history3 = train_model(model3, train_loader, val_loader, optimizer3,
-                                    criterion, EPOCHS, device, "convnext_scratch")
-    test_metrics3 = evaluate(model3, test_loader, criterion, device)
+    model_scratch = get_scratch_cnn(num_classes=num_classes)
+    model_scratch = model_scratch.to(device)
+    
+    trainable_params = sum(p.numel() for p in model_scratch.parameters() if p.requires_grad)
+    total_params = sum(p.numel() for p in model_scratch.parameters())
+    print(f"Trainable parameters: {trainable_params:,} / {total_params:,}")
+    
+    optimizer_scratch = optim.Adam(model_scratch.parameters(), lr=1e-3, weight_decay=1e-4)
+    criterion = nn.CrossEntropyLoss()
     results['Adam (Scratch)'] = test_metrics3
 
     from utils.result_plots import plot_training_history, plot_confusion_matrix
